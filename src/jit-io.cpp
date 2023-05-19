@@ -3,7 +3,7 @@
 
 static int ReadHeader(FILE *bcode_f, BCode *bcode);
 
-int ReadBCodeF(const char *bcode_f_path, BCode *bcode)
+int ReadBCodeF(BCode *bcode, const char *bcode_f_path)
 {
     ERR_CHK(bcode_f_path == NULL, ERR_NULL_PTR);
     ERR_CHK(       bcode == NULL, ERR_NULL_PTR);

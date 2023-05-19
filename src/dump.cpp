@@ -3,7 +3,7 @@
 
 static const char   *BCODE_LOG_PATH = "logs/bcode_log.txt";
 static const char      *IR_LOG_PATH = "logs/ir_log.txt";
-static const char *ADDRTBL_LOG_PATH = "logs/addr_tbl_log.txt";
+static const char *ADDRTBL_LOG_PATH = "logs/addrtbl_log.txt";
 
 static int PrintBCodeArg(BCode *bcode, FILE *log_f);
 static int PrintIRArg(JitIR *ir, FILE *log_f);
@@ -18,22 +18,24 @@ int DisAsmBCode(BCode *bcode)
     ERR_CHK(log_f == NULL, ERR_FOPEN);
 
     int32_t *code = bcode->buf;
-    bcode->ip = 0;
+    uint32_t old_ip = bcode->ip;
 
+    bcode->ip = 0;
     while(bcode->ip < bcode->buf_len)
     {
-        switch(MASK16(code[bcode->ip]))
+        switch(MSK16(code[bcode->ip]))
         {
-            #define DEF_CMD(name, num, arg, cpu_code)                               \
-                        case name##_ASMCODE :   fprintf(log_f, #name);              \
-                                                if (arg)                            \
-                                                {                                   \
-                                                    fprintf(log_f, " ");            \
-                                                    PrintBCodeArg(bcode, log_f);    \
-                                                }                                   \
+            #define DEF_CMD(name, num, arg, cpu_code)                                   \
+                        case name##_ASMCODE :   fprintf(log_f, #name);                  \
+                                                if (arg)                                \
+                                                {                                       \
+                                                    fprintf(log_f, " ");                \
+                                                    _err = PrintBCodeArg(bcode, log_f); \
+                                                    ERR_CHK(_err, ERR_PRNT_BCODE_ARG);  \
+                                                }                                       \
                                                 break;
 
-            #include "../Processor/cmd.h"
+            #include "../proc/cmd.h"
 
             #undef DEF_CMD
 
@@ -47,6 +49,8 @@ int DisAsmBCode(BCode *bcode)
         fprintf(log_f, "\n");
         bcode->ip++;
     }
+
+    bcode->ip = old_ip;
 
     _err = fclose(log_f);
     ERR_CHK(_err, ERR_FCLOSE);
@@ -110,8 +114,9 @@ int DisAsmIR(JitIR *ir)
     ERR_CHK(log_f == NULL, ERR_FOPEN);
 
     IRitm *code = ir->buf;
-    ir->ip = 0;
+    uint32_t old_ip = ir->ip;
 
+    ir->ip = 0;
     while(ir->ip < ir->buf_len)
     {
         switch(code[ir->ip].cmd)
@@ -121,7 +126,8 @@ int DisAsmIR(JitIR *ir)
                                                 if (arg)                            \
                                                 {                                   \
                                                     fprintf(log_f, " ");            \
-                                                    PrintIRArg(ir, log_f);          \
+                                                    _err = PrintIRArg(ir, log_f);   \
+                                                    ERR_CHK(_err, ERR_PRNT_IR_ARG); \
                                                 }                                   \
                                                 break;
 
@@ -140,6 +146,8 @@ int DisAsmIR(JitIR *ir)
         ir->ip++;
     }
 
+    ir->ip = old_ip;
+
     _err = fclose(log_f);
     ERR_CHK(_err, ERR_FCLOSE);
 
@@ -155,16 +163,16 @@ static int PrintIRArg(JitIR *ir, FILE *log_f)
 
     int8_t mod = ir->buf[ir->ip].mod;
 
-    if (mod & MEM_CODE)
+    if (mod & MOD_MEM_CODE)
         fprintf(log_f, "[");
 
-    if (mod & CNST_CODE)
+    if (mod & MOD_CNST_CODE)
         fprintf(log_f, "%d", ir->buf[ir->ip].cnst);
 
-    if ((mod & CNST_CODE) && (mod & REG_CODE))
+    if ((mod & MOD_CNST_CODE) && (mod & MOD_REG_CODE))
          fprintf(log_f, "+");
 
-    if (mod & REG_CODE)
+    if (mod & MOD_REG_CODE)
     {
         switch (ir->buf[ir->ip].reg)
         {
@@ -182,7 +190,7 @@ static int PrintIRArg(JitIR *ir, FILE *log_f)
         }
     }
 
-    if (mod & MEM_CODE)
+    if (mod & MOD_MEM_CODE)
         fprintf(log_f, "]");
 
     return SUCCESS;

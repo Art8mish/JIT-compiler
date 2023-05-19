@@ -1,36 +1,42 @@
 
 #include "include/jit.h"
 
-static const char *bcode_f_path = "Processor/io/asm_output";
+static const char *bcode_f_path = "proc/io/asm_output";
 
 int main(void)
 {
-    JitCntxt *jit = JitCntxtCtor(bcode_f_path);
-    ERR_CHK(_err, 1);
+    int32_t num = 0x12345678;
+    int8_t *ptr = (int8_t *)&num;
 
-    BCode *bcode = BCodeCtor(bcode_f_path);
-    ERR_CHK_SAFE(bcode == NULL, free(jit);, 1);
+    printf("%x\n%x %x %x %x", num, ptr[0], ptr[1], ptr[2], ptr[3]);
+
+    BCode *bcode = BCodeCtor();
+    ERR_CHK(bcode == NULL, 1);
+    
+    _err = ReadBCodeF(bcode, bcode_f_path);
+    ERR_CHK_SAFE(_err, BCodeDtor(bcode);, 2);
+    printf("BCodeLen = %u\n", bcode->buf_len);
 
     _err = DisAsmBCode(bcode);
-    ERR_CHK_SAFE(_err, BCodeDtor(bcode);
-                       free(jit);, 2);
+    ERR_CHK_SAFE(_err, BCodeDtor(bcode);, 3);
 
-    jit->ir = JitIRCtor(bcode);
-    ERR_CHK_SAFE(jit->ir == NULL, BCodeDtor(bcode);
-                                  free(jit);, 3);
+    JitIR *ir = JitIRCtor(bcode->buf_len);
+    ERR_CHK_SAFE(ir == NULL, BCodeDtor(bcode);, 4);
 
-    printf("BCodeLen = %u\n", bcode->buf_len);
+    _err = TranslateBCode(ir, bcode);
+    ERR_CHK_SAFE(ir == NULL, BCodeDtor(bcode);
+                             JitIRDtor(ir);, 5);
+
     _err = BCodeDtor(bcode);
-    ERR_CHK_SAFE(_err, JitCntxtDtor(jit);, 4);
+    ERR_CHK_SAFE(_err, JitIRDtor(ir);, 6);
 
-    _err = DisAsmIR(jit->ir);
-    ERR_CHK_SAFE(_err, JitCntxtDtor(jit);, 5);
+    _err = DisAsmIR(ir);
+    ERR_CHK_SAFE(_err, JitIRDtor(ir);, 7);
     
+    printf("IRLen = %u\n", ir->buf_len);
 
-    printf("IRLen = %ld\n", jit->ir->buf_len);
-
-    _err = JitCntxtDtor(jit);
-    ERR_CHK(_err, 6);
+    _err = JitIRDtor(ir);
+    ERR_CHK(_err, 8);
 
     return 0;
 }
