@@ -9,6 +9,7 @@
 #include "assert.h"
 #include "coding.h"
 
+
 const size_t SUPPORTED_ASM_VERS = 1;
 const size_t BCODE_HDR_SIZE     = 3;
 
@@ -19,6 +20,7 @@ const int32_t PSN_CNST = 0xA1EB;
 const int32_t PSN_REG  = 0xFF;
 
 const uint8_t SYS_WORD_LEN = 8;
+const uint8_t MAX_BCODE_CMD_LEN = 10; //can be coded with max 10 IR cmds 
 
 const uint32_t MAX_BCODE_BUF_LEN  = 5000;
 const uint32_t MAX_JITIR_BUF_LEN  = 5000;
@@ -47,10 +49,18 @@ struct SIB
     int8_t scale : 2;
 };
 
+struct Opcode
+{
+    int8_t b1 : 8;
+    int8_t b2 : 8;
+};
 
 typedef struct IRitem
 {
-    int8_t cmd = 0x00;
+    int8_t prfx = 0x00;
+
+    Opcode cmd;
+
     ModRM ModRM;
     SIB   SIB;
 

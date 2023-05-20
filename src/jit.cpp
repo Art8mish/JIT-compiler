@@ -11,15 +11,23 @@ static int FillAddrTbl(AddrTbl *addr_tbl, BCode *bcode);
 
 static int AssembleIRArg(ExCode *ex_code, JitIR *ir);
 
-#define IS_ASMJUMP(cmd)                       \
-           ((MSK16(cmd) ==  JMP_ASMCODE) ||  \
-            (MSK16(cmd) ==   JB_ASMCODE) ||  \
-            (MSK16(cmd) ==  JBE_ASMCODE) ||  \
-            (MSK16(cmd) ==   JA_ASMCODE) ||  \
-            (MSK16(cmd) ==  JAE_ASMCODE) ||  \
-            (MSK16(cmd) ==   JE_ASMCODE) ||  \
-            (MSK16(cmd) ==  JNE_ASMCODE) ||  \
-            (MSK16(cmd) == CALL_ASMCODE))
+#define IS_BCODE_JUMP(cmd)                \
+           ((MSK16(cmd) == BCODE_JMP) ||  \
+            (MSK16(cmd) == BCODE_JB)  ||  \
+            (MSK16(cmd) == BCODE_JBE) ||  \
+            (MSK16(cmd) == BCODE_JA)  ||  \
+            (MSK16(cmd) == BCODE_JAE) ||  \
+            (MSK16(cmd) == BCODE_JE)  ||  \
+            (MSK16(cmd) == BCODE_JNE) ||  \
+            (MSK16(cmd) == BCODE_CALL))
+
+#define IS_BCODE_CND_JMP(cmd)             \
+           ((MSK16(cmd) == BCODE_JB)  ||  \
+            (MSK16(cmd) == BCODE_JBE) ||  \
+            (MSK16(cmd) == BCODE_JA)  ||  \
+            (MSK16(cmd) == BCODE_JAE) ||  \
+            (MSK16(cmd) == BCODE_JE)  ||  \
+            (MSK16(cmd) == BCODE_JNE))
 
 
 static AddrTbl *AddrTblCtor(BCode *bcode)
@@ -68,7 +76,7 @@ static int FillAddrTbl(AddrTbl *addr_tbl, BCode *bcode)
     uint32_t bcode_ip = bcode->ip;
     while(bcode_ip < bcode->buf_len)
     {
-        if (IS_ASMJUMP(code[bcode_ip]))
+        if (IS_BCODE_JUMP(code[bcode_ip]))
         {
             addr_tbl->instr_ip[tbl_ip] = bcode_ip;
             addr_tbl->jmp_addr[tbl_ip] = code[++bcode_ip];
@@ -103,15 +111,14 @@ static int AddrTblDtor(AddrTbl *addr_tbl)
 
 int TranslateBCode(JitIR *ir, BCode *bcode)
 {
-    ERR_CHK(   ir          == NULL, ERR_NULL_PTR);
-    ERR_CHK(   ir->buf     == NULL, ERR_NULL_BUF_PTR);
-    ERR_CHK(   ir->buf_len == 0,    ERR_NULL_BUF_LEN);
+    ERR_CHK(ir             == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir->buf        == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ir->buf_len    == 0,    ERR_NULL_BUF_LEN);
     ERR_CHK(bcode          == NULL, ERR_NULL_PTR);
     ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
     ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
-    ERR_CHK(ir->buf_len != bcode->buf_len, ERR_WRONG_BUF_LEN);    
+    ERR_CHK(ir->buf_len != bcode->buf_len * MAX_BCODE_CMD_LEN, ERR_WRONG_BUF_LEN);    
 
-    
     AddrTbl *addr_tbl = AddrTblCtor(bcode);
     ERR_CHK(addr_tbl == NULL, ERR_ADDRTBL_CTOR);
 
@@ -125,33 +132,29 @@ int TranslateBCode(JitIR *ir, BCode *bcode)
     ir->ip    = 0;
     while(bcode->ip < bcode->buf_len)
     {
-        IRitm ir_itm = ir->buf[ir->ip];
+        IRitm *ir_itm = &ir->buf[ir->ip];
         switch(MSK16(code[bcode->ip]))
         {   
-            #define DEF_CMD(name, num, arg, cpu_code)                                                           \
-                case ASMCODE_##name :   _err = _processIR_##name(ir, bcode);                                    \
-                                        ERR_CHK(_err, ERR_PROC_IR_PUSH);                                        \
-                                        if (addr_tbl->instr_ip[tbl_ip] == bcode->ip)                            \
-                                        {                                                                       \
-                                            addr_tbl->instr_ip[tbl_ip] = ir->ip;                                \
-                                            ir->buf[ir->ip].mod |= MOD_JUMP_CODE;\
-                                            tbl_ip++;                                                           \
-                                        }                                                                       \
-                                        for(uint32_t ti = 0; ti < addr_tbl->len; ti++)                          \
-                                            if (addr_tbl->jmp_addr[ti] == bcode->ip)                            \
-                                                addr_tbl->jmp_addr[ti] = ir->ip;                                \
-                                        if (arg)                                                                \
-                                        {                                                                       \
-                                            _err = TranslateBCodeArg(ir, bcode);                                \
-                                            ERR_CHK(_err, ERR_TRANSLT_BCODE_ARG);                               \
-                                        }                                                                       \
-                                        break;
+            #define DEF_CMD(name, num, arg, cpu_code)                                           \
+                case BCODE_##name:                                                              \
+                        if (addr_tbl->instr_ip[tbl_ip] == bcode->ip)                            \
+                        {                                                                       \
+                            _preProcess
+                            addr_tbl->instr_ip[tbl_ip] = ir->ip;                                \
+                            tbl_ip++;                                                           \
+                        }                                                                       \
+                        for(uint32_t ti = 0; ti < addr_tbl->len; ti++)                          \
+                            if (addr_tbl->jmp_addr[ti] == bcode->ip)                            \
+                                addr_tbl->jmp_addr[ti] = ir->ip;                                \
+                        _err = _processIR_##name(ir, bcode);                                    \
+                        ERR_CHK(_err, ERR_PROC_IR_PUSH);                                                                       \
+                        break;
 
             #include "../proc/cmd.h"
 
             #undef DEF_CMD
 
-            default : printf(" # TranslateBCode(): ERROR: code = %d. \n", code[bcode->ip] & (int32_t)0xFFFF);
+            default : printf(" # TranslateBCode(): ERROR: WRONG_BCODE_CMD = %d. \n", MSK16(code[bcode->ip]));
                       _err = AddrTblDtor(addr_tbl);
                       ERR_CHK(_err, ERR_ADDRTBL_DTOR);
                       return ERR_BCODE_SYNTAX;
@@ -181,10 +184,17 @@ int TranslateBCode(JitIR *ir, BCode *bcode)
     return SUCCESS;
 }
 
-static int _processIR_PUSH(IRitm *ir_itm, BCode *bcode)
+
+static int _processIR_PUSH(JitIR *ir, BCode *bcode)
 {
-    ERR_CHK(ir_itm == NULL, ERR_NULL_PTR);
-    ERR_CHK(bcode  == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir             == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir->buf        == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ir->buf_len    == 0,    ERR_NULL_BUF_LEN);
+    ERR_CHK(bcode          == NULL, ERR_NULL_PTR);
+    ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
+
+    IRitm *ir_itm = &ir->buf[ir->ip];
 
     int32_t *code = bcode->buf; 
     int32_t  bcmd  = code[bcode->ip];
@@ -194,19 +204,38 @@ static int _processIR_PUSH(IRitm *ir_itm, BCode *bcode)
         case BCODE_REG:
                 switch (code[++bcode->ip])
                 {
-                    case BCODE_REG_RAX: ir_itm->cmd = IRC_PUSH_RAX;
+                    case BCODE_REG_RAX: ir_itm->cmd.b1 = IRC_PUSH_RAX;
                                         break;
-                    case BCODE_REG_RCX: ir_itm->cmd = IRC_PUSH_RCX;
+                    case BCODE_REG_RCX: ir_itm->cmd.b1 = IRC_PUSH_RCX;
                                         break;
-                    case BCODE_REG_RDX: ir_itm->cmd = IRC_PUSH_RBX;
+                    case BCODE_REG_RDX: ir_itm->cmd.b1 = IRC_PUSH_RBX;
                                         break;
-                    case BCODE_REG_RBX: ir_itm->cmd = IRC_PUSH_RDX;
+                    case BCODE_REG_RBX: ir_itm->cmd.b1 = IRC_PUSH_RDX;
                                         break;
+                    default: printf(" # _processIR_PUSH(): ERROR: WRONG_REG_CODE = %x. \n", code[bcode->ip]);
+                             return ERR_IR_SYNTAX;
+                             break;
                 }
+                
+                ir_itm->instr_len += 1;
                 break;  
 
         case BCODE_CNST:  
-                ir_itm->cmd       = IRC_PUSH_MEM;
+                ir_itm->cmd.b1 = IRC_PUSH_CNST;
+                ir_itm->instr_len += 1;
+                break;
+
+        case BCODE_MEM_REG:
+                ir_itm->cmd.b1    = IRC_PUSH_MEM;
+
+                ir_itm->ModRM.mod = IRC_MODRM_MOD_REG;
+                ir_itm->ModRM.reg = IRC_RSI;
+
+                ir_itm->instr_len += 2;
+                break;
+        
+        case BCODE_MEM_CNST:
+                ir_itm->cmd.b1    = IRC_PUSH_MEM;
 
                 ir_itm->ModRM.mod = IRC_MODRM_MOD_CNST;
                 ir_itm->ModRM.reg = IRC_RSI;
@@ -216,84 +245,44 @@ static int _processIR_PUSH(IRitm *ir_itm, BCode *bcode)
                 ir_itm->SIB.index = IRC_SIB_INDX_NONE;
                 ir_itm->SIB.base  = IRC_SIB_BASE_NONE;
 
-                ir_itm->cnst = code[++bcode->ip];
-                break;
-
-        case BCODE_MEM_REG:
-                ir_itm->cmd       = IRC_PUSH_MEM;
-
-                ir_itm->ModRM.mod = IRC_MODRM_MOD_REG;
-                ir_itm->ModRM.reg = IRC_RSI;
-                
-                switch (code[++bcode->ip])
-                {
-                    case BCODE_REG_RAX: ir_itm->ModRM.rm = IRC_RAX;
-                                        break;
-                    case BCODE_REG_RCX: ir_itm->ModRM.rm = IRC_RCX;
-                                        break;
-                    case BCODE_REG_RDX: ir_itm->ModRM.rm = IRC_RDX;
-                                        break;
-                    case BCODE_REG_RBX: ir_itm->ModRM.rm = IRC_RBX;
-                                        break;
-                }
-                break;
-        
-        case BCODE_MEM_CNST:
-                code->buf[code->ip++] = 0xff;
-                code->buf[code->ip++] = 0x34; //ModRM
-                code->buf[code->ip++] = 0x25; //SIB
+                ir_itm->instr_len += 3;
                 break;
 
         case BCODE_MEM_REG_CNST:
-                code->buf[code->ip++] = 0xff;
-                code->buf[code->ip++] = 0xb0 + iritm->reg;   
+                ir_itm->cmd.b1    = IRC_PUSH_MEM;
+                
+                ir_itm->ModRM.mod = IRC_MODRM_MOD_REG_CNST;
+                ir_itm->ModRM.reg = IRC_RSI;
+
+                ir_itm->instr_len += 2;
+                break;
+
         default:     
-                printf(" # AsmPUSH(): ERROR: code = %x. \n", MSK3(iritm->mod));
+                printf(" # _processIR_PUSH(): ERROR: WRONG_BCODE_MOD = %x. \n", MSK_BCODE_MOD(bcmd));
                 return ERR_IR_SYNTAX;
                 break;             
     }
-    
-    if (CNST_MSK(iritm->mod))
+
+    if (bcmd & BCODE_CNST)
     {
-        memmove(&code->buf[code->ip], &iritm->cnst, sizeof(int32_t));
-        code->ip += sizeof(int32_t); 
+        ir_itm->cnst = code[++bcode->ip];
+        ir_itm->instr_len += 4;
     }
 
-}
-
-
-static int TranslateBCodeArg(JitIR *ir, BCode *bcode)
-{
-    ERR_CHK(ir    == NULL, ERR_NULL_PTR);
-    ERR_CHK(bcode == NULL, ERR_NULL_PTR);
-
-    int32_t cmd = bcode->buf[bcode->ip];
-
-    if (cmd & MEMORY_CODE)
-        ir->buf[ir->ip].mod |= MOD_MEM_CODE;
-
-    if (cmd & IMMEDIATE_CONST_CODE)
+    if (bcmd & BCODE_MEM_REG)
     {
-        ir->buf[ir->ip].mod |= MOD_CNST_CODE;
-        ir->buf[ir->ip].cnst = bcode->buf[++bcode->ip];
-    }
-    
-    if (cmd & REGISTER_CODE)
-    {
-        ir->buf[ir->ip].mod |= MOD_REG_CODE;
-
-        bcode->ip++;
-        switch (bcode->buf[bcode->ip])
+        switch (code[++bcode->ip])
         {
-            case REG_RAX :  ir->buf[ir->ip].reg = RAX_CODE;
-                            break;
-            case REG_RBX :  ir->buf[ir->ip].reg = RBX_CODE;
-                            break;
-            case REG_RCX :  ir->buf[ir->ip].reg = RCX_CODE;
-                            break;
-            case REG_RDX :  ir->buf[ir->ip].reg = RDX_CODE;
-                            break;
-            default: return ERR_WRONG_REG;
+            case BCODE_REG_RAX: ir_itm->ModRM.rm = IRC_RAX;
+                                break;
+            case BCODE_REG_RCX: ir_itm->ModRM.rm = IRC_RCX;
+                                break;
+            case BCODE_REG_RDX: ir_itm->ModRM.rm = IRC_RDX;
+                                break;
+            case BCODE_REG_RBX: ir_itm->ModRM.rm = IRC_RBX;
+                                break;
+            default: printf(" # _processIR_PUSH(): ERROR: WRONG_REG_CODE = %x. \n", code[bcode->ip]);
+                     return ERR_IR_SYNTAX;
                      break;
         }
     }
@@ -301,9 +290,246 @@ static int TranslateBCodeArg(JitIR *ir, BCode *bcode)
     return SUCCESS;
 }
 
+static int _processIR_POP(JitIR *ir, BCode *bcode)
+{
+    ERR_CHK(ir             == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir->buf        == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ir->buf_len    == 0,    ERR_NULL_BUF_LEN);
+    ERR_CHK(bcode          == NULL, ERR_NULL_PTR);
+    ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
+
+    IRitm *ir_itm = &ir->buf[ir->ip];
+
+    int32_t *code = bcode->buf; 
+    int32_t  bcmd  = bcode->buf[bcode->ip];
+
+    switch (MSK_BCODE_MOD(bcmd))
+    {
+        case BCODE_REG:
+                switch (code[++bcode->ip])
+                {
+                    case BCODE_REG_RAX: ir_itm->cmd.b1 = IRC_POP_RAX;
+                                        break;
+                    case BCODE_REG_RCX: ir_itm->cmd.b1 = IRC_POP_RCX;
+                                        break;
+                    case BCODE_REG_RDX: ir_itm->cmd.b1 = IRC_POP_RDX;
+                                        break;
+                    case BCODE_REG_RBX: ir_itm->cmd.b1 = IRC_POP_RBX;
+                                        break;
+                    default: printf(" # _processIR_POP(): ERROR: WRONG_REG_CODE = %x. \n", code[bcode->ip]);
+                             return ERR_IR_SYNTAX;
+                             break;
+                }
+
+                ir_itm->instr_len += 1;
+                break;  
+
+        case BCODE_MEM_REG:
+                ir_itm->cmd.b1    = IRC_POP_MEM;
+
+                ir_itm->ModRM.mod = IRC_MODRM_MOD_REG;
+                ir_itm->ModRM.reg = IRC_MODRM_REG_POP;
+
+                ir_itm->instr_len += 2;
+                break;
+        
+        case BCODE_MEM_CNST:
+                ir_itm->cmd.b1    = IRC_POP_MEM;
+
+                ir_itm->ModRM.mod = IRC_MODRM_MOD_CNST;
+                ir_itm->ModRM.reg = IRC_MODRM_REG_POP;
+                ir_itm->ModRM.rm  = IRC_MODRM_RM_SIB;
+
+                ir_itm->SIB.scale = IRC_SIB_SCLF1;
+                ir_itm->SIB.index = IRC_SIB_INDX_NONE;
+                ir_itm->SIB.base  = IRC_SIB_BASE_NONE;
+
+                ir_itm->instr_len += 3;
+                break;
+
+        case BCODE_MEM_REG_CNST:
+                ir_itm->cmd.b1    = IRC_POP_MEM;
+                
+                ir_itm->ModRM.mod = IRC_MODRM_MOD_REG_CNST;
+                ir_itm->ModRM.reg = IRC_MODRM_REG_POP;
+
+                ir_itm->instr_len += 2;
+                break;
+
+        default:     
+                printf(" # _processIR_POP(): ERROR: WRONG_BCODE_MOD = %x. \n", MSK_BCODE_MOD(bcmd));
+                return ERR_IR_SYNTAX;
+                break;             
+    }
+
+    if (bcmd & BCODE_CNST)
+    {
+        ir_itm->cnst = code[++bcode->ip];
+        ir_itm->instr_len += 4;
+    }
+
+    if (bcmd & BCODE_MEM_REG)
+    {
+        switch (code[++bcode->ip])
+        {
+            case BCODE_REG_RAX: ir_itm->ModRM.rm = IRC_RAX;
+                                break;
+            case BCODE_REG_RCX: ir_itm->ModRM.rm = IRC_RCX;
+                                break;
+            case BCODE_REG_RDX: ir_itm->ModRM.rm = IRC_RDX;
+                                break;
+            case BCODE_REG_RBX: ir_itm->ModRM.rm = IRC_RBX;
+                                break;
+            default: printf(" # _processIR_POP(): ERROR: WRONG_REG_CODE = %x. \n", code[bcode->ip]);
+                     return ERR_IR_SYNTAX;
+                     break;
+        }
+    }
+    
+    return SUCCESS;
+}
+
+#define TOIR_POP(ir, reg)                                       \
+            ir->buf[ir->ip].cmd.b1 = IRC_POP_##reg;             \
+            ir->buf[ir->ip].instr_len += 1;                     \
+            ir->ip++
+
+#define TOIR_PUSH(ir, reg)                                      \
+            ir->buf[ir->ip].cmd.b1 = IRC_PUSH_##reg;            \
+            ir->buf[ir->ip].instr_len += 1;                     \
+            ir->ip++
+
+#define TOIR_MOV(ir, regl, regr)                                \
+            ir->buf[ir->ip].prfx = IRC_PRFX_OP64;               \
+            ir->buf[ir->ip].cmd.b1 = IRC_MOV;                   \
+            ir->buf[ir->ip].ModRM.mod = IRC_MODRM_MOD_REG_REG;  \
+            ir->buf[ir->ip].ModRM.reg = IRC_##regr;             \
+            ir->buf[ir->ip].ModRM.rm  = IRC_##regl;             \
+            ir->buf[ir->ip].instr_len += 3;                     \
+            ir->ip++
 
 
+static int _processIR_OP(JitIR *ir, BCode *bcode)
+{
+    ERR_CHK(ir             == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir->buf        == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ir->buf_len    == 0,    ERR_NULL_BUF_LEN);
+    ERR_CHK(bcode          == NULL, ERR_NULL_PTR);
+    ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
 
+    int32_t *code = bcode->buf; 
+
+    TOIR_POP(ir, RSI);
+    TOIR_POP(ir, RDI);
+
+    bool idiv = false;
+    if (code[bcode->ip] == BCODE_DIV)
+        idiv = true;
+
+    if (idiv)
+    {
+        TOIR_PUSH(ir, RAX);
+        TOIR_PUSH(ir, RDX);
+        TOIR_MOV (ir, RAX, RDI);
+    }
+    
+    IRitm *ir_itm = &ir->buf[ir->ip];
+
+    ir_itm->prfx = IRC_PRFX_OP64;
+    ir_itm->instr_len += 1;
+        
+    switch(code[bcode->ip])
+    {
+        //ADD RDI, RSI  
+        case BCODE_ADD: ir_itm->cmd.b1 = IRC_ADD;
+
+                        ir_itm->ModRM.mod = IRC_MODRM_MOD_REG_REG;
+                        ir_itm->ModRM.reg = IRC_RSI;
+                        ir_itm->ModRM.rm  = IRC_RDI;
+
+                        ir_itm->instr_len += 2;
+                        break;
+
+        //SUB RDI, RSI  
+        case BCODE_SUB: ir_itm->cmd.b1 = IRC_SUB;
+
+                        ir_itm->ModRM.mod = IRC_MODRM_MOD_REG_REG;
+                        ir_itm->ModRM.reg = IRC_RSI;
+                        ir_itm->ModRM.rm  = IRC_RDI;
+
+                        ir_itm->instr_len += 2;
+                        break;
+
+        //IMUL RDI, RSI  
+        case BCODE_MUL: ir_itm->cmd.b1 = IRC_TWO_BYTE;
+
+                        ir_itm->cmd.b2 = IRC_IMUL;
+
+                        ir_itm->ModRM.mod = IRC_MODRM_MOD_REG_REG;
+                        ir_itm->ModRM.reg = IRC_RDI;
+                        ir_itm->ModRM.rm  = IRC_RSI;
+
+                        ir_itm->instr_len += 3;
+                        break;
+
+        //IDIV RSI  
+        case BCODE_DIV: ir_itm->cmd.b1 = IRC_IDIV;
+
+                        ir_itm->ModRM.mod = IRC_MODRM_MOD_REG_REG;
+                        ir_itm->ModRM.reg = IRC_MODRM_REG_IDIV64;
+                        ir_itm->ModRM.rm  = IRC_RSI;
+
+                        ir_itm->instr_len += 2;
+                        break;
+        
+        default: printf(" # _processIR_OP(): ERROR: WRONG_BCODE_CMD = %x. \n", code[bcode->ip]);
+                 return ERR_IR_SYNTAX;
+                 break;
+    }
+    ir->ip++;
+
+    if (idiv)
+    {
+        TOIR_MOV(ir, RDI, RAX);
+        TOIR_POP(ir, RDX);
+        TOIR_POP(ir, RAX);
+    }
+
+    TOIR_PUSH(ir, RDI);
+    ir->ip--;
+
+    return SUCCESS;
+}
+
+static int _processIR_RET(JitIR *ir, BCode *bcode)
+{
+    ERR_CHK(ir             == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir->buf        == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ir->buf_len    == 0,    ERR_NULL_BUF_LEN);
+    ERR_CHK(bcode          == NULL, ERR_NULL_PTR);
+    ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
+
+    ir->buf[ir->ip].cmd.b1 = IRC_RET;
+    ir->buf[ir->ip].instr_len += 1;
+
+    return SUCCESS;
+}
+
+static int _processIR_JMP(JitIR *ir, BCode *bcode)
+{
+    ERR_CHK(ir             == NULL, ERR_NULL_PTR);
+    ERR_CHK(ir->buf        == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ir->buf_len    == 0,    ERR_NULL_BUF_LEN);
+    ERR_CHK(bcode          == NULL, ERR_NULL_PTR);
+    ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
+
+
+    return SUCCESS;
+}
 
 
 

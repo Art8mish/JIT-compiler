@@ -1,12 +1,11 @@
 
 #ifndef IR_CMD
-#define IR_CMD(cmd, arg, ir_code)
+#define IR_CMD(cmd, prfx, two_byte, modrm, sib, cnst, ir_code)
 #endif
 
-IR_CMD(PUSH, 1,
+IR_CMD(PUSH, 0, 0, 1, 1, 1, 
 {
-    _err = _processIR_PUSH(ir, bcode);
-    ERR_CHK(_err, ERR_PROC_IR_PUSH);
+    
 })
 
 IR_CMD(POP, POP_CODE, 1,

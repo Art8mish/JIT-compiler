@@ -22,7 +22,7 @@ JitIR *JitIRCtor(uint32_t buf_len)
     JitIR *ir = (JitIR *) calloc(1, sizeof(JitIR));
     ERR_CHK(ir == NULL, NULL);
 
-    ir->buf_len = buf_len;
+    ir->buf_len = buf_len * MAX_BCODE_CMD_LEN;
     ir->buf     = (IRitm *) calloc(ir->buf_len, sizeof(IRitm));
     ERR_CHK(ir->buf == NULL, NULL);
 
@@ -40,7 +40,9 @@ static int InitIRitems(JitIR *ir)
 
     for (unsigned i = 0; i < ir->buf_len; i++)
     {
-        ir->buf[i].cmd       = 0x00;
+        ir->buf[i].prfx      = 0x00;
+        ir->buf[i].cmd.b1    = 0x00;
+        ir->buf[i].cmd.b2    = 0x00;
 
         ir->buf[i].ModRM.rm  = 0b000;
         ir->buf[i].ModRM.reg = 0b000;
@@ -66,11 +68,11 @@ ExCode *ExCodeCtor(uint32_t instr_buf_len)
     ExCode *ex_code = (ExCode *) calloc(1, sizeof(ExCode));
     ERR_CHK(ex_code == NULL, NULL);
 
-    ex_code->buf_len = SYS_WORD_LEN * instr_buf_len;
+    ex_code->buf_len = instr_buf_len * SYS_WORD_LEN;
     ex_code->buf = (int8_t *) calloc(ex_code->buf_len, sizeof(int8_t));
     ERR_CHK(ex_code->buf == NULL, NULL);
 
-    memset(ex_code->buf, RET_CODE, ex_code->buf_len);
+    memset(ex_code->buf, IRC_RET, ex_code->buf_len);
 
     ex_code->ip = 0;
 
