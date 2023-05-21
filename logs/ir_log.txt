@@ -1,68 +1,80 @@
-IN
-POP rax
-PUSH 1
-POP rbx
-PUSH rax
-PUSH 0
-JB 23
-PUSH rax
-PUSH 1
-JBE 22
-CALL 2
-OUT
-HLT
-PUSH rbx
-PUSH rax
-PUSH 1
-JE 3
-POP rbx
-CALL 2
-CALL -7
-RET
-PUSH rbx
-PUSH rax
-MUL
-POP rbx
-PUSH rax
-PUSH 1
-SUB
-POP rax
-RET
-PUSH 0
-JMP -21
-PUSH 1
-JMP -23
-IN
-POP rax
-PUSH 1
-POP rbx
-PUSH rax
-PUSH 0
-JB 23
-PUSH rax
-PUSH 1
-JBE 22
-CALL 2
-OUT
-HLT
-PUSH rbx
-PUSH rax
-PUSH 1
-JE 3
-POP rbx
-CALL 2
-CALL -7
-RET
-PUSH rbx
-PUSH rax
-MUL
-POP rbx
-PUSH rax
-PUSH 1
-SUB
-POP rax
-RET
-PUSH 0
-JMP -21
-PUSH 1
-JMP -23
+MOVABS_RDI: 
+[0]: 48 ffffffbf 5646db65047d 
+PUSH_RAX: 
+[1]: 50 
+LEA_REG_MEM: 
+[2]: 48 ffffff8d 34 4 
+MOVABS_RAX: 
+[3]: 48 ffffffb8 7fac39b25110 
+MEM: 
+[4]: ffffffff ffffffd0 
+MEM: 
+[5]: ffffffff 34 a1eb 
+POP_RAX: 
+[6]: 58 
+POP_RAX: 
+[7]: 58 
+MOVABS_RDI: 
+[0]: 48 ffffffbf 558f7c720485 
+PUSH_RAX: 
+[1]: 50 
+LEA_REG_MEM: 
+[2]: 48 ffffff8d 34 4 
+MOVABS_RAX: 
+[3]: 48 ffffffb8 7fc51c318110 
+MEM: 
+[4]: ffffffff ffffffd0 
+MEM: 
+[5]: ffffffff 34 a1eb 
+POP_RAX: 
+[6]: 58 
+POP_RAX: 
+[7]: 58 
+MOVABS_RDI: 
+[0]: 48 ffffffbf 5578bd252485 
+PUSH_RAX: 
+[1]: 50 
+LEA_REG_MEM: 
+[2]: 48 ffffff8d 34 4 
+MOVABS_RAX: 
+[3]: 48 ffffffb8 7efffd2ed110 
+MEM: 
+[4]: ffffffff ffffffd0 
+MEM: 
+[5]: ffffffff 34 a1eb 
+POP_RAX: 
+[6]: 58 
+POP_RAX: 
+[7]: 58 
+MOVABS_RDI: 
+[0]: 48 ø 55d49846a485 
+PUSH_RAX: 
+[1]: P 
+LEA_REG_MEM: 
+[2]: 48 ç 34 4 
+MOVABS_RAX: 
+[3]: 48 ∏ 7f979550e110 
+MEM: 
+[4]: ˇ ffffffd0 
+MEM: 
+[5]: ˇ 34 a1eb 
+POP_RAX: 
+[6]: X 
+POP_RAX: 
+[7]: X 
+MOVABS_RDI: 
+[0]: 48 øx 55a47f760485 
+PUSH_RAX: 
+[1]: Px 
+LEA_REG_MEM: 
+[2]: 48 çx 34 4 
+MOVABS_RAX: 
+[3]: 48 ∏x 7fd277de8110 
+MEM: 
+[4]: ˇx ffffffd0 
+MEM: 
+[5]: ˇx 34 a1eb 
+POP_RAX: 
+[6]: Xx 
+POP_RAX: 
+[7]: Xx 

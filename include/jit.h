@@ -35,14 +35,14 @@ typedef struct ByteCode
 } BCode;
 
 
-struct ModRM
+struct ModRMb
 {
     int8_t rm  : 3;
     int8_t reg : 3;
     int8_t mod : 2;
 };
 
-struct SIB
+struct SIBb
 {
     int8_t base  : 3;
     int8_t index : 3;
@@ -61,11 +61,11 @@ typedef struct IRitem
 
     Opcode cmd;
 
-    ModRM ModRM;
-    SIB   SIB;
+    ModRMb ModRM;
+    SIBb   SIB;
 
     int8_t  reg  = PSN_REG;
-    int32_t cnst = PSN_CNST;
+    int64_t cnst = PSN_CNST;
 
     uint8_t instr_len = 0;
 } IRitm;

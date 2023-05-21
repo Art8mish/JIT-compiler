@@ -80,19 +80,16 @@ enum JitErrors
     ERR_PRNT_IR_ARG      = 23,
     ERR_PRNT_BCODE_ARG   = 24,
     ERR_ASSEMBLE_IR_ARG  = 25,
-    ERR_TRANSLT_BCODE_ARG = 26,
+    ERR_CALC_REL_ADDR    = 26,
+    ERR_WRONG_ADDR_IP    = 28,
+    ERR_PROC_IR_PUSH_POP = 29,
+    ERR_PROC_IR_JUMP     = 30,
+    ERR_PROC_IR_OP       = 31,
+    ERR_PROC_IR_IN       = 32,
+    ERR_PROC_IR_OUT      = 33,
+    ERR_PROC_BCODE2IR    = 34,
 };
 
-
-#define DEF_CMD(name, num, arg, code) \
-                ERR_PROC_IR_##name = num + 50,
-
-enum ProcIRErrors
-{
-    #include "../proc/cmd.h"
-};
-
-#undef DEF_CMD
 
 static int32_t _err = 0;
 

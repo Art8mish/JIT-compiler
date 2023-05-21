@@ -5,11 +5,6 @@ static const char *bcode_f_path = "proc/io/asm_output";
 
 int main(void)
 {
-    int32_t num = 0x12345678;
-    int8_t *ptr = (int8_t *)&num;
-
-    printf("%x\n%x %x %x %x", num, ptr[0], ptr[1], ptr[2], ptr[3]);
-
     BCode *bcode = BCodeCtor();
     ERR_CHK(bcode == NULL, 1);
     
