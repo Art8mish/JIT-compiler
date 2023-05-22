@@ -4,9 +4,9 @@
 static const char   *BCODE_LOG_PATH = "logs/bcode_log.txt";
 static const char      *IR_LOG_PATH = "logs/ir_log.txt";
 static const char *ADDRTBL_LOG_PATH = "logs/addrtbl_log.txt";
+static const char *EX_CODE_LOG_PATH = "logs/ex_code_log.txt";
 
 static int PrintBCodeArg(BCode *bcode, FILE *log_f);
-static int PrintIRArg(JitIR *ir, FILE *log_f);
 
 int DisAsmBCode(BCode *bcode)
 {
@@ -26,7 +26,7 @@ int DisAsmBCode(BCode *bcode)
         switch(MSK16(code[bcode->ip]))
         {
             #define DEF_CMD(name, num, arg, cpu_code)                                   \
-                        case BCODE_##name :   fprintf(log_f, #name);                  \
+                        case BCODE_##name :   fprintf(log_f,"[%d]: " #name, bcode->ip); \
                                                 if (arg)                                \
                                                 {                                       \
                                                     fprintf(log_f, " ");                \
@@ -103,8 +103,7 @@ static int PrintBCodeArg(BCode *bcode, FILE *log_f)
 }
 
 
-
-int DisAsmIR(JitIR *ir)
+int DumpIR(JitIR *ir)
 {
     ERR_CHK(ir          == NULL, ERR_NULL_PTR);
     ERR_CHK(ir->buf     == NULL, ERR_NULL_BUF_PTR);
@@ -114,48 +113,77 @@ int DisAsmIR(JitIR *ir)
     ERR_CHK(log_f == NULL, ERR_FOPEN);
 
     IRitm *code = ir->buf;
-    uint32_t old_ip = ir->ip;
+    uint32_t old_ip = ir->ip; 
 
     ir->ip = 0;
     while(ir->ip < ir->buf_len)
     {
-        switch(code[ir->ip].cmd.b1)
+        int8_t cmdb1 = code[ir->ip].cmd.b1;
+
+        switch(cmdb1)
         {
-            #define IR_CMD(name, prefix, ModRMbyte, const)                                      \
-                        case IRC_##name :                                                       \
-                                fprintf(log_f, #name": \n[%d]: ", ir->ip);                      \
-                                if (prefix)                                                     \
-                                    fprintf(log_f, "%x ", code[ir->ip].prfx);                   \
-                                fprintf(log_f, "%x ", code[ir->ip].cmd.b1);                     \
-                                if (code[ir->ip].cmd.b1 == IRC_TWO_BYTE)                        \
-                                    fprintf(log_f, "%x ", code[ir->ip].cmd.b2);                 \
-                                if (ModRMbyte)                                                  \
-                                {                                                               \
-                                    fprintf(log_f, "%x ", *((int8_t *)&code[ir->ip].ModRM));    \
-                                    if (code[ir->ip].ModRM.rm == IRC_MODRM_RM_SIB)              \
-                                        fprintf(log_f, "%x ", *((int8_t *)&code[ir->ip].SIB));  \
-                                    if (code[ir->ip].ModRM.mod == IRC_MODRM_MOD_CNST ||         \
-                                        code[ir->ip].ModRM.mod == IRC_MODRM_MOD_REG_CNST)       \
-                                        fprintf(log_f, "%x ", code[ir->ip].cnst);               \
-                                }                                                               \
-                                if (const == 1)                                                  \
-                                    fprintf(log_f, "%x ", code[ir->ip].cnst);                   \
-                                else if (const == 2)                                             \
-                                    fprintf(log_f, "%lx ", code[ir->ip].cnst);                  \
-                                break;
+            #define IR_CMD(name, prefix, ModRMbyte, constant)                                       \
+                        case IRC_##name : {                                                         \
+                                int prfx = prefix;                                                  \
+                                int modrm = ModRMbyte;                                              \
+                                int cnst = constant;                                                \
+                                fprintf(log_f, "[%d]: "#name"(%d) ModRm = %x, SIB = %x:\n", ir->ip, \
+                                        IR_LEN(ir), MSK_HEXB(IR_MODRM(ir)), MSK_HEXB(IR_SIB(ir)));  \
+                                if (IR_CMD_B1(ir) == IRC_TWO_BYTE)                                  \
+                                {                                                                   \
+                                    switch(IR_CMD_B2(ir))                                           \
+                                    {                                                               \
+                                        case IRC_JB:    [[fallthrough]]                             \
+                                        case IRC_JBE:   [[fallthrough]]                             \
+                                        case IRC_JA:    [[fallthrough]]                             \
+                                        case IRC_JAE:   [[fallthrough]]                             \
+                                        case IRC_JE:    [[fallthrough]]                             \
+                                        case IRC_JNE:   cnst = 1;                                   \
+                                                        break;                                      \
+                                        case IRC_IMUL:  prfx = 1;                                   \
+                                                        modrm = 1;                                  \
+                                                        break;                                      \
+                                        default: printf(" # DisAsmIR(%d): ERROR: WRONG_IR_TWOB_CMDB1 = %x. \n",\
+                                                            ir->ip, code[ir->ip].cmd.b1);           \
+                                                _err = fclose(log_f);                               \
+                                                ERR_CHK(_err, ERR_FCLOSE);                          \
+                                                return ERR_IR_SYNTAX;                               \
+                                                break;                                              \
+                                    }                                                               \
+                                }                                                                   \
+                                if (prfx)                                                           \
+                                    fprintf(log_f, "%x ", MSK_HEXB(IR_PRFX(ir)));                   \
+                                fprintf(log_f, "%x ", MSK_HEXB(IR_CMD_B1(ir)));                     \
+                                if (IR_CMD_B1(ir) == IRC_TWO_BYTE)                                  \
+                                    fprintf(log_f, "%x ", MSK_HEXB(IR_CMD_B2(ir)));                 \
+                                if (modrm)                                                          \
+                                {                                                                   \
+                                    fprintf(log_f, "%x ", MSK_HEXB(IR_MODRM(ir)));                  \
+                                    if (IR_MODRM_MOD(ir) == IRC_MODRM_MOD_00 &&                     \
+                                        IR_MODRM_RM(ir) == IRC_MODRM_RM_SIB)                        \
+                                        fprintf(log_f, "%x ", MSK_HEXB(IR_SIB(ir)));                \
+                                    if (IR_CMD_B1_IS_MEM(ir) &&                                     \
+                                        (IR_ARG_IS_MEM_CNST(ir) || IR_MODRM_MOD_IS_REG_CNST(ir)))   \
+                                        fprintf(log_f, "%x ", IR_CNST32(ir));                       \
+                                }                                                                   \
+                                if (cnst == 1)                                                      \
+                                    fprintf(log_f, "%x ", IR_CNST32(ir));                           \
+                                else if (cnst == 2)                                                 \
+                                    fprintf(log_f, "%lx ", IR_CNST64(ir));                          \
+                                break; }
 
             #include "../include/ir_cmd.h"
 
             #undef IR_CMD
 
-            default : printf(" # DisAsmIR(): ERROR: WRONG_IR_CMDB1 = %x. \n", code[ir->ip].cmd.b1);
+            default : {printf(" # DisAsmIR(%d): ERROR: WRONG_IR_CMDB1 = %x. \n", ir->ip, code[ir->ip].cmd.b1);
                       _err = fclose(log_f);
                       ERR_CHK(_err, ERR_FCLOSE);
                       return ERR_IR_SYNTAX;
-                      break;
+                      break;}
         }
 
-        fprintf(log_f, "\n");
+        fprintf(log_f, "\n\n");
         ir->ip++;
     }
 
@@ -167,47 +195,25 @@ int DisAsmIR(JitIR *ir)
     return SUCCESS;
 }
 
-// static int PrintIRArg(JitIR *ir, FILE *log_f)
-// {
-//     ERR_CHK(ir          == NULL, ERR_NULL_PTR);
-//     ERR_CHK(ir->buf     == NULL, ERR_NULL_BUF_PTR);
-//     ERR_CHK(ir->buf_len == 0,    ERR_NULL_BUF_LEN);
-//     ERR_CHK(log_f       == NULL, ERR_NULL_PTR);
 
-//     int8_t mod = ir->buf[ir->ip].mod;
+int DumpExCode(ExCode *ex_code)
+{
+    ERR_CHK(ex_code          == NULL, ERR_NULL_PTR);
+    ERR_CHK(ex_code->buf     == NULL, ERR_NULL_BUF_PTR);
+    ERR_CHK(ex_code->buf_len == 0,    ERR_NULL_BUF_LEN);
 
-//     if (mod & MOD_MEM_CODE)
-//         fprintf(log_f, "[");
+    FILE *log_f = fopen(EX_CODE_LOG_PATH, "a");
+    ERR_CHK(log_f == NULL, ERR_FOPEN);
 
-//     if (mod & MOD_CNST_CODE)
-//         fprintf(log_f, "%d", ir->buf[ir->ip].cnst);
+    for (int i = 0; i < ex_code->buf_len; i++)
+        fprintf(log_f, "%x ", MSK_HEXB(ex_code->buf[i]));
 
-//     if ((mod & MOD_CNST_CODE) && (mod & MOD_REG_CODE))
-//          fprintf(log_f, "+");
+    _err = fclose(log_f);
+    ERR_CHK(_err, ERR_FCLOSE);
 
-//     if (mod & MOD_REG_CODE)
-//     {
-//         switch (ir->buf[ir->ip].reg)
-//         {
-//             case RAX_CODE: fprintf(log_f, "rax");
-//                           break;
-//             case RBX_CODE: fprintf(log_f, "rbx");
-//                           break;
-//             case RCX_CODE: fprintf(log_f, "rcx");
-//                           break;
-//             case RDX_CODE: fprintf(log_f, "rdx");
-//                           break;
+    return SUCCESS;
+}
 
-//             default: return ERR_WRONG_REG;
-//                      break;
-//         }
-//     }
-
-//     if (mod & MOD_MEM_CODE)
-//         fprintf(log_f, "]");
-
-//     return SUCCESS;
-// }
 
 int DumpAddrTbl(AddrTbl *addr_tbl)
 {
@@ -221,8 +227,8 @@ int DumpAddrTbl(AddrTbl *addr_tbl)
     fprintf(log_f, "Address Table (len = %u):\n", addr_tbl->len);
     fprintf(log_f, "  i  \tinstr_ip\tjmp_addr\n");
     for (uint32_t i = 0; i < addr_tbl->len; i++)
-        fprintf(log_f, "[%-3u]\t%-8u\t%-8u\n", 
-                        i, addr_tbl->instr_ip[i], addr_tbl->jmp_addr[i]);
+        fprintf(log_f, "[%-3u]\t%-8u\t%d(%x)\n", i, addr_tbl->instr_ip[i], 
+                        addr_tbl->jmp_addr[i], addr_tbl->jmp_addr[i]);
     fprintf(log_f, "\n");
 
     _err = fclose(log_f);

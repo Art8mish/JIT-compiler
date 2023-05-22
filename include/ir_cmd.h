@@ -1,6 +1,6 @@
 
 #ifndef IR_CMD
-#define IR_CMD(name, prefix, ModRMbyte, const)  
+#define IR_CMD(name, prefix, ModRMbyte, constant)  
 #endif
 //prfx  = 0/1 -> n/y prefix byte
 //modrm = 0/1 -> n/y ModRM byte
@@ -10,6 +10,7 @@ IR_CMD(PUSH_RAX,  0, 0, 0)
 IR_CMD(PUSH_RCX,  0, 0, 0)
 IR_CMD(PUSH_RDX,  0, 0, 0)
 IR_CMD(PUSH_RBX,  0, 0, 0)
+IR_CMD(PUSH_RDI,  0, 0, 0)
 IR_CMD(PUSH_CNST, 0, 0, 1)
 IR_CMD(MEM,       0, 1, 0)
 
@@ -17,6 +18,8 @@ IR_CMD(POP_RAX, 0, 0, 0)
 IR_CMD(POP_RCX, 0, 0, 0)
 IR_CMD(POP_RDX, 0, 0, 0)
 IR_CMD(POP_RBX, 0, 0, 0)
+IR_CMD(POP_RDI, 0, 0, 0)
+IR_CMD(POP_RSI, 0, 0, 0)
 IR_CMD(POP_MEM, 0, 1, 0)
 
 IR_CMD(CALL_REL, 0, 0, 1)
@@ -41,6 +44,7 @@ IR_CMD(IDIV, 1, 1, 0)
 IR_CMD(OP_CNST, 1, 1, 1)
 
 
+IR_CMD(MOV_REG_MEM, 1, 1, 0)
 IR_CMD(MOV_REG_REG, 1, 1, 0)
 IR_CMD(MOVABS_RAX,  1, 0, 2)
 IR_CMD(MOVABS_RDI,  1, 0, 2)

@@ -79,7 +79,7 @@ enum JitErrors
     ERR_TRNSLT_BCODE_ARG = 22,
     ERR_PRNT_IR_ARG      = 23,
     ERR_PRNT_BCODE_ARG   = 24,
-    ERR_ASSEMBLE_IR_ARG  = 25,
+    ERR_ASSEMBLE_IR      = 25,
     ERR_CALC_REL_ADDR    = 26,
     ERR_WRONG_ADDR_IP    = 28,
     ERR_PROC_IR_PUSH_POP = 29,
@@ -88,6 +88,10 @@ enum JitErrors
     ERR_PROC_IR_IN       = 32,
     ERR_PROC_IR_OUT      = 33,
     ERR_PROC_BCODE2IR    = 34,
+    ERR_WORNG_PRFX_IND   = 35,
+    ERR_WRONG_MODRM_IND  = 36,
+    ERR_WRONG_CONST_IND  = 37,
+    ERR_MUNMAP           = 39,
 };
 
 

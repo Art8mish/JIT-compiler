@@ -4,7 +4,8 @@
 #include "jit.h"
 
 int DisAsmBCode(BCode *bcode);
-int DisAsmIR(JitIR *ir);
+int DumpIR(JitIR *ir);
 int DumpAddrTbl(AddrTbl *addr_tbl);
+int DumpExCode(ExCode *ex_code);
 
 #endif //DUMP_H_INCLUDED

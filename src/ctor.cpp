@@ -52,7 +52,6 @@ static int InitIRitems(JitIR *ir)
         ir->buf[i].SIB.index = 0b000;
         ir->buf[i].SIB.scale = 0b00;
 
-        ir->buf[i].reg  = PSN_REG;
         ir->buf[i].cnst = PSN_CNST;
         ir->buf[i].instr_len = 0;
     }
@@ -68,11 +67,15 @@ ExCode *ExCodeCtor(uint32_t instr_buf_len)
     ExCode *ex_code = (ExCode *) calloc(1, sizeof(ExCode));
     ERR_CHK(ex_code == NULL, NULL);
 
-    ex_code->buf_len = instr_buf_len * SYS_WORD_LEN;
-    ex_code->buf = (int8_t *) calloc(ex_code->buf_len, sizeof(int8_t));
-    ERR_CHK(ex_code->buf == NULL, NULL);
+    ex_code->buf_len = instr_buf_len * MAX_IR_INSTR_LEN;
+    ex_code->buf = (int8_t *) mmap(NULL, ex_code->buf_len,
+                                   PROT_READ  | PROT_WRITE | PROT_EXEC, 
+                                   MAP_SHARED | MAP_ANONYMOUS, 0, 0);
+    ERR_CHK(ex_code->buf == MAP_FAILED , NULL);
 
     memset(ex_code->buf, IRC_RET, ex_code->buf_len);
+    _err = mprotect(ex_code->buf, ex_code->buf_len, PROT_READ | PROT_WRITE | PROT_EXEC);
+    ERR_CHK(_err, NULL);
 
     ex_code->ip = 0;
 
@@ -110,7 +113,11 @@ int ExCodeDtor(ExCode *ex_code)
     ERR_CHK(ex_code->buf == NULL, ERR_NULL_PTR);
 
     if (ex_code->buf != NULL)
-        free(ex_code->buf);
+    {
+        _err = munmap(ex_code->buf, ex_code->buf_len);
+        ERR_CHK(_err, ERR_MUNMAP);
+    }
+
     free(ex_code);
 
     return SUCCESS;

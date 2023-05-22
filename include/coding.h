@@ -8,6 +8,7 @@
 #define MSK3(cmd)          (cmd  & 0b111)
 #define MSK_CNST32(cnst)   (cnst & 0xFFFFFF00)
 #define MSK_BCODE_MOD(cmd) (cmd  & BCODE_MEM_REG_CNST)
+#define MSK_HEXB(num4)     (num4 & 0x000000FF)
 
 
 //BCODE_CODING///////////////////
@@ -102,6 +103,7 @@ const int8_t IRC_OP_CNST = 0x81;
 
 const int8_t IRC_CMP_REG_REG =  0x39;
 
+const int8_t IRC_MOV_REG_MEM = 0x8B;
 const int8_t IRC_MOV_REG_REG = 0x89;
 const int8_t IRC_MOVABS_RAX  = 0xB8;
 const int8_t IRC_MOVABS_RDI  = 0xBF;
@@ -116,8 +118,7 @@ const int8_t IRC_TWO_BYTE = 0x0F;
 //MODRM
 
 //mod
-const int8_t IRC_MODRM_MOD_REG      = 0b00;
-const int8_t IRC_MODRM_MOD_CNST     = 0b00;
+const int8_t IRC_MODRM_MOD_00       = 0b00;
 const int8_t IRC_MODRM_MOD_REG_CNST = 0b10;
 
 const int8_t IRC_MODRM_MOD_REG_DIR  = 0b11;
@@ -191,13 +192,14 @@ pop rax*///
 /*IN//////
 movabs rdi, str
 push rax
-sub rsp, 4
+sub rsp, 8
 lea rsi, [rsp]
 movabs rax, scanf
 call rax
-push [rsp]
-add rsp, 4
-pop rax*///
+mov rdi, [rsp]
+add rsp, 8
+pop rax
+push rdi*///
 
 
 
