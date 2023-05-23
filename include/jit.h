@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <unistd.h>
+#include <time.h>
 #include <sys/mman.h>
 
 #include "assert.h"
@@ -20,13 +21,16 @@ const size_t    SIZE_OF_SGNTR = 2;
 
 const int32_t PSN_CNST = 0xEBA1;
 
-const uint8_t MAX_IR_INSTR_LEN  = 10; //maximum
+const uint8_t MAX_IR_INSTR_LEN  = 10;
 const uint8_t MAX_BCODE_CMD_LEN = 10; //can be coded with max 10 IR cmds 
 
 const uint32_t MAX_BCODE_BUF_LEN  = 5000;
 const uint32_t MAX_JITIR_BUF_LEN  = 5000;
 const uint32_t MAX_EXCODE_BUF_LEN = 5000;
 const uint32_t MAX_ADRTBL_LEN     = 5000;
+
+static const char *INPUT_FILE_PATH = "proc/io/asm_output";
+
 
 typedef struct ByteCode
 {
@@ -100,6 +104,8 @@ typedef struct AddressTable
 }AddrTbl;
 
 #include "dump.h"
+
+int ProcMainArgs(int argc, char *argv[], const char **inpt_f);
 
 BCode *BCodeCtor();
 int ReadBCodeF(BCode *bcode, const char *bcode_f_path);

@@ -49,3 +49,19 @@ static int ReadHeader(FILE *bcode_f, BCode *bcode)
 
     return SUCCESS;
 }
+
+int ProcMainArgs(int argc, char *argv[], const char **inpt_f)
+{
+    ERR_CHK(argv   == NULL, ERR_NULL_PTR);
+    ERR_CHK(inpt_f == NULL, ERR_NULL_PTR);
+
+    if (argc == 1)
+         *inpt_f =  INPUT_FILE_PATH;
+
+    else if (argc == 2)
+         *inpt_f = argv[1];
+    else
+        return ERR_MANY_MAIN_ARG;
+
+    return SUCCESS;
+}

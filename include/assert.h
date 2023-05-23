@@ -93,6 +93,19 @@ enum JitErrors
     ERR_WRONG_CONST_IND  = 37,
     ERR_MUNMAP           = 39,
     ERR_MPROTECT         = 40,
+    ERR_MANY_MAIN_ARG    = 41,
+    ERR_BCODE_CTOR       = 42,
+    ERR_READ_BCODE       = 43,
+    ERR_DISASM_BCODE     = 44,
+    ERR_JITIR_CTOR       = 45,
+    ERR_TRNSLT_BCODE2IR  = 46,
+    ERR_BCODE_DTOR       = 47,
+    ERR_DUMP_IR          = 48,
+    ERR_EXCODE_CTOR      = 49,
+    ERR_DUMP_EXCODE      = 50,
+    ERR_PROC_MAIN_ARGS   = 51,
+    ERR_CALL_EXCODE      = 52,
+    ERR_EXCODE_DTOR      = 53,
 };
 
 
