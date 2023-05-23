@@ -12,8 +12,8 @@ int main(void)
     ERR_CHK_SAFE(_err, BCodeDtor(bcode);, 2);
     printf("BCodeLen = %u\n", bcode->buf_len);
 
-    // _err = DisAsmBCode(bcode);
-    // ERR_CHK_SAFE(_err, BCodeDtor(bcode);, 3);
+    _err = DisAsmBCode(bcode);
+    ERR_CHK_SAFE(_err, BCodeDtor(bcode);, 3);
 
     JitIR *ir = JitIRCtor(bcode->buf_len);
     ERR_CHK_SAFE(ir == NULL, BCodeDtor(bcode);, 4);

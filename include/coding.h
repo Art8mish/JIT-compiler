@@ -190,16 +190,12 @@ call rax
 pop rax*///
 
 /*IN//////
-movabs rdi, str
-push rax
-sub rsp, 8
-lea rsi, [rsp]
-movabs rax, scanf
+mov rdi, rax
+movabs rax, __scanf
 call rax
-mov rdi, [rsp]
-add rsp, 8
-pop rax
-push rdi*///
+push rax
+mov rax, rdi
+*///
 
 
 

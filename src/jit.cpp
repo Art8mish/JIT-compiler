@@ -187,6 +187,7 @@ int TranslateBCode2IR(JitIR *ir, BCode *bcode)
 
     }
 
+
     //writing new abs addresses
     for (uint32_t ti = 0; ti < addr_tbl->len; ti++)
         addr_tbl->jmp_addr[ti] = new_addr[ti];
@@ -655,9 +656,6 @@ static int _processIR_OUT(JitIR *ir, BCode *bcode)
     const char *str = "%d\n";
     int (*printf_ptr)(const char *, ...) = printf; 
 
-    printf("str(printf) address: %p\n", str);
-    printf("ptintf address: %p\n", printf);
-
     TOIR_MOVABS_REG_CNST(ir, RDI, (int64_t)str);
     TOIR_POP_REG(ir, RSI);
 
@@ -670,6 +668,22 @@ static int _processIR_OUT(JitIR *ir, BCode *bcode)
     return SUCCESS;
 }
 
+int __scanf ()
+{
+    int num = 0;
+    char buf[32] = {0};
+
+    read (0, buf, 32);
+    int i = 0;
+    while (buf[i] >= '0')
+    {
+        num *= 10;
+        num += buf[i] - '0';
+        i += 1;
+    }
+    return num;
+}
+
 static int _processIR_IN(JitIR *ir, BCode *bcode)
 {
     ERR_CHK(ir             == NULL, ERR_NULL_PTR);
@@ -679,34 +693,30 @@ static int _processIR_IN(JitIR *ir, BCode *bcode)
     ERR_CHK(bcode->buf     == NULL, ERR_NULL_BUF_PTR);
     ERR_CHK(bcode->buf_len == 0,    ERR_NULL_BUF_LEN);
 
-    const char *str = "Enter num: %d";
-    int (*scanf_ptr)(const char *, ...) = scanf; 
-    printf("str(scanf) address: %p\n", str);
-    printf("scanf address: %p\n", scanf);
+    int (*scanf_ptr)() = __scanf; 
 
-    TOIR_MOVABS_REG_CNST(ir, RDI, (uint64_t)str);
+    TOIR_MOV_REG_REG(ir, RDI, RAX);
+    // TOIR_SUB_REG_CNST(ir, RSP, 8);
 
-    TOIR_PUSH_REG(ir, RAX);
-    TOIR_SUB_REG_CNST(ir, RSP, 8);
+    // //LEA RSI, [RSP+8]---------------------
+    // IR_ITM.prfx      = IRC_PRFX_OP64;
 
-    //LEA RSI, [RSP]---------------------
-    IR_ITM.prfx      = IRC_PRFX_OP64;
+    // IR_ITM.cmd.b1    = IRC_LEA_REG_MEM;
 
-    IR_ITM.cmd.b1    = IRC_LEA_REG_MEM;
+    // IR_ITM.ModRM.mod = IRC_MODRM_MOD_REG_CNST;
+    // IR_ITM.ModRM.reg = IRC_RSI; 
+    // IR_ITM.ModRM.rm  = IRC_MODRM_RM_SIB;
 
-    IR_ITM.ModRM.mod = IRC_MODRM_MOD_00;
-    IR_ITM.ModRM.reg = IRC_RSI; 
-    IR_ITM.ModRM.rm  = IRC_MODRM_RM_SIB;
+    // IR_ITM.SIB.scale = IRC_SIB_SCLF1;
+    // IR_ITM.SIB.index = IRC_SIB_INDX_NONE; 
+    // IR_ITM.SIB.base  = IRC_RSP;
 
-    IR_ITM.SIB.scale = IRC_SIB_SCLF1;
-    IR_ITM.SIB.index = IRC_SIB_INDX_NONE; 
-    IR_ITM.SIB.base  = IRC_RSP;
+    // IR_ITM.cnst = 8;
+    // IR_ITM.instr_len += 8;
+    // ir->ip++;
+    // //-----------------------------------
 
-    IR_ITM.instr_len += 4;
-    ir->ip++;
-    //-----------------------------------
-
-    TOIR_MOVABS_REG_CNST(ir, RAX, (int64_t)scanf_ptr);
+    TOIR_MOVABS_REG_CNST(ir, RAX, (int64_t)__scanf);
     TOIR_CALL_REG(ir, RAX);
 
     // //PUSH [RSP]-------------------------
@@ -724,27 +734,27 @@ static int _processIR_IN(JitIR *ir, BCode *bcode)
     // ir->ip++;
     // //-----------------------------------
 
-    //MOV RDI, [RSP]-----------------------
-    IR_ITM.prfx      = IRC_PRFX_OP64;
+    // //MOV RDI, [RSP+8]-----------------------
+    // IR_ITM.prfx      = IRC_PRFX_OP64;
 
-    IR_ITM.cmd.b1    = IRC_MOV_REG_MEM;
+    // IR_ITM.cmd.b1    = IRC_MOV_REG_MEM;
 
-    IR_ITM.ModRM.mod = IRC_MODRM_MOD_00;
-    IR_ITM.ModRM.reg = IRC_RDI; 
-    IR_ITM.ModRM.rm  = IRC_MODRM_RM_SIB;
+    // IR_ITM.ModRM.mod = IRC_MODRM_MOD_REG_CNST;
+    // IR_ITM.ModRM.reg = IRC_RDI; 
+    // IR_ITM.ModRM.rm  = IRC_MODRM_RM_SIB;
 
-    IR_ITM.SIB.scale = IRC_SIB_SCLF1;
-    IR_ITM.SIB.index = IRC_SIB_INDX_NONE; 
-    IR_ITM.SIB.base  = IRC_RSP;
+    // IR_ITM.SIB.scale = IRC_SIB_SCLF1;
+    // IR_ITM.SIB.index = IRC_SIB_INDX_NONE; 
+    // IR_ITM.SIB.base  = IRC_RSP;
 
-    IR_ITM.instr_len += 4;
-    ir->ip++;
-    //-----------------------------------
+    // IR_ITM.cnst = 8;
+    // IR_ITM.instr_len += 8;
+    // ir->ip++;
+    // //-----------------------------------
 
-    TOIR_ADD_REG_CNST(ir, RSP, 8);
-    TOIR_POP_REG(ir, RAX);
-
-    TOIR_PUSH_REG(ir, RDI);
+    // TOIR_ADD_REG_CNST(ir, RSP, 8);
+    TOIR_PUSH_REG(ir, RAX);
+    TOIR_MOV_REG_REG(ir, RAX, RDI);
     ir->ip--;
 
     return SUCCESS;
@@ -844,12 +854,12 @@ static int AssembleIRitm(ExCode *ex_code, JitIR *ir, int prfx_ind, int modrm_ind
     {
         code[ex_code->ip++] = IR_MODRM(ir);
 
-        if (IR_MODRM_MOD(ir) == IRC_MODRM_MOD_00 &&
-            IR_MODRM_RM(ir) == IRC_MODRM_RM_SIB)
+        if ((IR_MODRM_MOD_IS_00(ir) && IR_MODRM_RM(ir) == IRC_MODRM_RM_SIB) || 
+            (IR_MODRM_MOD_IS_REG_CNST(ir) && IR_MODRM_RM(ir) == IRC_MODRM_RM_SIB))
             code[ex_code->ip++] = IR_SIB(ir);
 
-        if (IR_CMD_B1_IS_MEM(ir) &&
-            (IR_ARG_IS_MEM_CNST(ir) || IR_MODRM_MOD_IS_REG_CNST(ir)))
+        if ((IR_CMD_B1_IS_MEM(ir) && IR_ARG_IS_MEM_CNST(ir))
+            || IR_MODRM_MOD_IS_REG_CNST(ir))
             cnst_ind = 1;
     }
 
@@ -900,14 +910,12 @@ int CallExCode(ExCode *ex_code)
 // {
 //     __asm__ 
 //     ( 
-//         "movabs rdi, 0x560df44749bd"
-//         "push   rax"
-//         "sub    rsp, 0x8"
-//         "lea    rsi, [rsp]"
+//         "mov    rdi, rax"
 //         "movabs rax,0x7fd7ff691110"
 //         "call   rax"
+//         "push   rax"
+//         "mov    rax, rdi"
 //         "mov    rdi, QWORD PTR [rsp]"
-//         "add    rsp, 0x8"
 //         "pop    rax"
 //         "push   rdi"
 //         "pop    rax"

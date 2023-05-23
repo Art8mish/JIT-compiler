@@ -22,10 +22,10 @@
 #define IR_SIB_INDEX(ir) (IR_SIB(ir) & 0b111000)
 #define IR_SIB_BASE(ir)  (IR_SIB(ir) & 0b111)
 
-
-#define IR_MODRM_MOD_IS_REG_CNST(ir) (IR_MODRM_MOD(ir) == IRC_MODRM_MOD_REG_CNST)
+#define IR_MODRM_MOD_IS_00(ir)       (IR_MODRM_MOD(ir) == (IRC_MODRM_MOD_00 << 6))
+#define IR_MODRM_MOD_IS_REG_CNST(ir) (IR_MODRM_MOD(ir) == (IRC_MODRM_MOD_REG_CNST << 6))
 #define IR_CMD_B1_IS_MEM(ir)         (IR_CMD_B1(ir) == IRC_POP_MEM  || IR_CMD_B1(ir) == IRC_MEM)
-#define IR_ARG_IS_MEM_CNST(ir)       (IR_MODRM_MOD(ir) == IRC_MODRM_MOD_00  &&     \
+#define IR_ARG_IS_MEM_CNST(ir)       (IR_MODRM_MOD(ir) == (IRC_MODRM_MOD_00 << 6)  &&     \
                                       IR_MODRM_RM(ir)  == IRC_MODRM_RM_SIB  &&     \
                                       IR_SIB_BASE(ir)  == IRC_SIB_BASE_NONE)
 
