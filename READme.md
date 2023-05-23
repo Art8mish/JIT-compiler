@@ -176,6 +176,7 @@ ret
 </b></details>
 <details>   
 <summary> Структура из двух байтов для кодирования самой команды </summary><br><b>
+
 ```C++
 struct Opcode
 {
