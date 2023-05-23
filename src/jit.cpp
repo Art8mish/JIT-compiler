@@ -892,10 +892,7 @@ static int AssembleIRitm(ExCode *ex_code, JitIR *ir, int prfx_ind, int modrm_ind
 //     ERR_CHK(     ir          == NULL, ERR_NULL_PTR);
 //     ERR_CHK(     ir->buf     == NULL, ERR_NULL_BUF_PTR);
 //     ERR_CHK(     ir->buf_len == 0,    ERR_NULL_BUF_LEN);
-
-    
-
-
+//
 //     return SUCCESS;
 // }
 
