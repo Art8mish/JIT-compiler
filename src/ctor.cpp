@@ -114,6 +114,9 @@ int ExCodeDtor(ExCode *ex_code)
 
     if (ex_code->buf != NULL)
     {
+        _err = mprotect(ex_code->buf, ex_code->buf_len, PROT_READ | PROT_WRITE | PROT_EXEC);
+        ERR_CHK(_err, ERR_MPROTECT);
+
         _err = munmap(ex_code->buf, ex_code->buf_len);
         ERR_CHK(_err, ERR_MUNMAP);
     }

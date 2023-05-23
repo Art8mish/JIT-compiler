@@ -92,6 +92,7 @@ enum JitErrors
     ERR_WRONG_MODRM_IND  = 36,
     ERR_WRONG_CONST_IND  = 37,
     ERR_MUNMAP           = 39,
+    ERR_MPROTECT         = 40,
 };
 
 
