@@ -2,7 +2,7 @@
 48 89 c7 
 
 [1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55b2f34ddc75 
+48 b8 55dd565f8dbb 
 
 [2]: MEM(2) ModRm = d0, SIB = 0:
 ff d0 
@@ -16,164 +16,611 @@ ff d0
 [5]: POP_RAX(1) ModRm = 0, SIB = 0:
 58 
 
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[6]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
 
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
+[7]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 55dd565f8dbb 
 
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55b2f34e29e1 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f484da3f770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
+[8]: MEM(2) ModRm = d0, SIB = 0:
 ff d0 
 
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+[9]: PUSH_RAX(1) ModRm = 0, SIB = 0:
 50 
 
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[10]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
 
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
+[11]: POP_RBX(1) ModRm = 0, SIB = 0:
 5b 
 
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+[12]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[13]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 55dd565f8dbb 
+
+[14]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[15]: PUSH_RAX(1) ModRm = 0, SIB = 0:
 50 
 
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[16]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
 
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
+[17]: POP_RCX(1) ModRm = 0, SIB = 0:
+59 
 
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
+[18]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
 
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+[19]: PUSH_CNST(5) ModRm = 0, SIB = 0:
 68 0 
 
+[20]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[21]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[22]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[23]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 5 
+
+[24]: JMP(5) ModRm = 0, SIB = 0:
+e9 a9 
+
+[25]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[26]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[27]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[28]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[29]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[30]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 3c 
+
+[31]: PUSH_RCX(1) ModRm = 0, SIB = 0:
+51 
+
+[32]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[33]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[34]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[35]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[36]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[37]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[38]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[39]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[40]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[41]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[42]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[43]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[44]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[45]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[46]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[47]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[48]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 55dd565fda01 
+
+[49]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[50]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[51]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f22b2a3c770 
+
+[52]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[53]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
 [54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
+e9 17a 
 
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[55]: PUSH_RCX(1) ModRm = 0, SIB = 0:
+51 
 
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
+[56]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[57]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[58]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[59]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[60]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 5 
+
+[61]: JMP(5) ModRm = 0, SIB = 0:
+e9 23 
+
+[62]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 328 
+
+[63]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 55dd565fda01 
+
+[64]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[65]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[66]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f22b2a3c770 
+
+[67]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[68]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[69]: JMP(5) ModRm = 0, SIB = 0:
+e9 141 
+
+[70]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 25e 
+
+[71]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 55dd565fda01 
+
+[72]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[73]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[74]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f22b2a3c770 
+
+[75]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[76]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[77]: JMP(5) ModRm = 0, SIB = 0:
+e9 11e 
+
+[78]: CALL_REL(5) ModRm = 0, SIB = 0:
+e8 f8 
+
+[79]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 4 
+
+[80]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[81]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[82]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[83]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[84]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[85]: PUSH_RCX(1) ModRm = 0, SIB = 0:
+51 
+
+[86]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[87]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[88]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[89]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[90]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 2 
+
+[91]: CALL_REL(5) ModRm = 0, SIB = 0:
+e8 d9 
+
+[92]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[93]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[94]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[95]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[96]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[97]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[98]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[99]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[100]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[101]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[102]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[103]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[104]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[105]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[106]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[107]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[108]: SUB(3) ModRm = f7, SIB = 0:
+48 29 f7 
+
+[109]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[110]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[111]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[112]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[113]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[114]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[115]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[116]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 82 ffffff8a 
+
+[117]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[118]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[119]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[120]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[121]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[122]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 4a 
+
+[123]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[124]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[125]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[126]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[127]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[128]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[129]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[130]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[131]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[132]: SUB(3) ModRm = f7, SIB = 0:
+48 29 f7 
+
+[133]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[134]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 2 
+
+[135]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[136]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[137]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[138]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[139]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[140]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[141]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[142]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[143]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[144]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[145]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[146]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[147]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[148]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[149]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[150]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 55dd565fda01 
+
+[151]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[152]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[153]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f22b2a3c770 
+
+[154]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[155]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[156]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[157]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[158]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[159]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[160]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[161]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[162]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[163]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[164]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[165]: ADD(3) ModRm = f7, SIB = 0:
+48 1 f7 
+
+[166]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[167]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 2 
+
+[168]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[169]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[170]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[171]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[172]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[173]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[174]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[175]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[176]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[177]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[178]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[179]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[180]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[181]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[182]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[183]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 55dd565fda01 
+
+[184]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[185]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[186]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f22b2a3c770 
+
+[187]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[188]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[189]: JMP(5) ModRm = 0, SIB = 0:
+e9 21 
+
+[190]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[191]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[192]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[193]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[194]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[195]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 87 e 
+
+[196]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[197]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[198]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[199]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[200]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[201]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[202]: RET(1) ModRm = 0, SIB = 0:
+c3 
+
+[203]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[204]: RET(1) ModRm = 0, SIB = 0:
+c3 
+
+[205]: HLT(1) ModRm = 0, SIB = 0:
+f4 
 
 [0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
 48 89 c7 
 
 [1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55dce1d0bc39 
+48 b8 556094b4adbb 
 
 [2]: MEM(2) ModRm = d0, SIB = 0:
 ff d0 
@@ -187,164 +634,611 @@ ff d0
 [5]: POP_RAX(1) ModRm = 0, SIB = 0:
 58 
 
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[6]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
 
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
+[7]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 556094b4adbb 
 
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55dce1d109b9 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f8c71d6d770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
+[8]: MEM(2) ModRm = d0, SIB = 0:
 ff d0 
 
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+[9]: PUSH_RAX(1) ModRm = 0, SIB = 0:
 50 
 
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[10]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
 
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
+[11]: POP_RBX(1) ModRm = 0, SIB = 0:
 5b 
 
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+[12]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[13]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 556094b4adbb 
+
+[14]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[15]: PUSH_RAX(1) ModRm = 0, SIB = 0:
 50 
 
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[16]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
 
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
+[17]: POP_RCX(1) ModRm = 0, SIB = 0:
+59 
 
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
+[18]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
 
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+[19]: PUSH_CNST(5) ModRm = 0, SIB = 0:
 68 0 
 
+[20]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[21]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[22]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[23]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 5 
+
+[24]: JMP(5) ModRm = 0, SIB = 0:
+e9 a9 
+
+[25]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[26]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[27]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[28]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[29]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[30]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 3c 
+
+[31]: PUSH_RCX(1) ModRm = 0, SIB = 0:
+51 
+
+[32]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[33]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[34]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[35]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[36]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[37]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[38]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[39]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[40]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[41]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[42]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[43]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[44]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[45]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[46]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[47]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[48]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 556094b4fa01 
+
+[49]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[50]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[51]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f9f250ca770 
+
+[52]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[53]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
 [54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
+e9 17a 
 
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
+[55]: PUSH_RCX(1) ModRm = 0, SIB = 0:
+51 
 
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
+[56]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[57]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[58]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[59]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[60]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 5 
+
+[61]: JMP(5) ModRm = 0, SIB = 0:
+e9 23 
+
+[62]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 328 
+
+[63]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 556094b4fa01 
+
+[64]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[65]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[66]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f9f250ca770 
+
+[67]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[68]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[69]: JMP(5) ModRm = 0, SIB = 0:
+e9 141 
+
+[70]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 25e 
+
+[71]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 556094b4fa01 
+
+[72]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[73]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[74]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f9f250ca770 
+
+[75]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[76]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[77]: JMP(5) ModRm = 0, SIB = 0:
+e9 11e 
+
+[78]: CALL_REL(5) ModRm = 0, SIB = 0:
+e8 f8 
+
+[79]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 4 
+
+[80]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[81]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[82]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[83]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[84]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[85]: PUSH_RCX(1) ModRm = 0, SIB = 0:
+51 
+
+[86]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[87]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[88]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[89]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[90]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 2 
+
+[91]: CALL_REL(5) ModRm = 0, SIB = 0:
+e8 d9 
+
+[92]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[93]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[94]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[95]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[96]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[97]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[98]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[99]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[100]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[101]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[102]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[103]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[104]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[105]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[106]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[107]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[108]: SUB(3) ModRm = f7, SIB = 0:
+48 29 f7 
+
+[109]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[110]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[111]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[112]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[113]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[114]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[115]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[116]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 82 ffffff8a 
+
+[117]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[118]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[119]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[120]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[121]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[122]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 84 4a 
+
+[123]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[124]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[125]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[126]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[127]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[128]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[129]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[130]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[131]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[132]: SUB(3) ModRm = f7, SIB = 0:
+48 29 f7 
+
+[133]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[134]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 2 
+
+[135]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[136]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[137]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[138]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[139]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[140]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[141]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[142]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[143]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[144]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[145]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[146]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[147]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[148]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[149]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[150]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 556094b4fa01 
+
+[151]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[152]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[153]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f9f250ca770 
+
+[154]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[155]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[156]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[157]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[158]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[159]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[160]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[161]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[162]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[163]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[164]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[165]: ADD(3) ModRm = f7, SIB = 0:
+48 1 f7 
+
+[166]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[167]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 2 
+
+[168]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[169]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[170]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[171]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[172]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[173]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[174]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[175]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[176]: PUSH_RDX(1) ModRm = 0, SIB = 0:
+52 
+
+[177]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
+48 89 f8 
+
+[178]: IDIV(3) ModRm = fe, SIB = 0:
+48 f7 fe 
+
+[179]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
+48 89 c7 
+
+[180]: POP_RDX(1) ModRm = 0, SIB = 0:
+5a 
+
+[181]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[182]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[183]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
+48 bf 556094b4fa01 
+
+[184]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[185]: PUSH_RAX(1) ModRm = 0, SIB = 0:
+50 
+
+[186]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
+48 b8 7f9f250ca770 
+
+[187]: MEM(2) ModRm = d0, SIB = 0:
+ff d0 
+
+[188]: POP_RAX(1) ModRm = 0, SIB = 0:
+58 
+
+[189]: JMP(5) ModRm = 0, SIB = 0:
+e9 21 
+
+[190]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[191]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 0 
+
+[192]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[193]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[194]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
+48 39 f7 
+
+[195]: TWO_BYTE(6) ModRm = 0, SIB = 0:
+f 87 e 
+
+[196]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[197]: PUSH_CNST(5) ModRm = 0, SIB = 0:
+68 ffffffff 
+
+[198]: POP_RSI(1) ModRm = 0, SIB = 0:
+5e 
+
+[199]: POP_RDI(1) ModRm = 0, SIB = 0:
+5f 
+
+[200]: TWO_BYTE(4) ModRm = fe, SIB = 0:
+48 f af fe 
+
+[201]: PUSH_RDI(1) ModRm = 0, SIB = 0:
+57 
+
+[202]: RET(1) ModRm = 0, SIB = 0:
+c3 
+
+[203]: PUSH_RBX(1) ModRm = 0, SIB = 0:
+53 
+
+[204]: RET(1) ModRm = 0, SIB = 0:
+c3 
+
+[205]: HLT(1) ModRm = 0, SIB = 0:
+f4 
 
 [0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
 48 89 c7 
 
 [1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 120c39 
+48 b8 55cb51ee6dbb 
 
 [2]: MEM(2) ModRm = d0, SIB = 0:
 ff d0 
@@ -407,7 +1301,7 @@ e8 1b
 53 
 
 [22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 1259b9 
+48 bf 55cb51eeba01 
 
 [23]: POP_RSI(1) ModRm = 0, SIB = 0:
 5e 
@@ -416,3598 +1310,7 @@ e8 1b
 50 
 
 [25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 48c4770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55b6086c6d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55b6086cba11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f4488b41770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55dba7eb1d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55dba7eb6a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f2deb74b770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 556b9fcdbd93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 556b9fce0a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f5bf3cd4770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 558bc9974d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 558bc9979a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fdab6426770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55a7464f1d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55a7464f6a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fe93510a770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 561b364e6d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 561b364eba11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f607e06e770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 56128ad76d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 56128ad7ba11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fcca836b770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 5615051b3d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 5615051b8a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f410e5cf770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 555f0b655d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 555f0b65aa11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f7b7d82e770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 561464bd4d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 561464bd9a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fc3ae0a5770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 562f32c26d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 562f32c2ba11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fdeebb56770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 5609bd8edd93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 5609bd8f2a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f8487b5f770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55b6a2505d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55b6a250aa11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f8b11ea3770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 559469f8cd93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 559469f91a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fb30a8e5770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 556ce11a9d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 556ce11aea11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f4da4be8770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55d68b01cd93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55d68b021a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7fa6e4e47770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55cc8eacbd93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55cc8ead0a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f05744ff770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55d829a34d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55d829a39a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f8265c4e770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 5640a101ed93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 5640a1023a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f65298d3770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55f0b3062d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55f0b3067a11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f8a64e67770 
-
-[26]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[27]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[28]: HLT(1) ModRm = 0, SIB = 0:
-f4 
-
-[29]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[30]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[31]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[32]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[33]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[34]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 84 a 
-
-[35]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 6 
-
-[36]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 ffffffe5 
-
-[37]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[38]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[39]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[40]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[41]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[42]: TWO_BYTE(4) ModRm = fe, SIB = 0:
-48 f af fe 
-
-[43]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[44]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[45]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[46]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[47]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[48]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[49]: SUB(3) ModRm = f7, SIB = 0:
-48 29 f7 
-
-[50]: PUSH_RDI(1) ModRm = 0, SIB = 0:
-57 
-
-[51]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[52]: RET(1) ModRm = 0, SIB = 0:
-c3 
-
-[53]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[54]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffffa8 
-
-[55]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[56]: JMP(5) ModRm = 0, SIB = 0:
-e9 ffffff9e 
-
-[0]: MOV_REG_REG(3) ModRm = c7, SIB = 0:
-48 89 c7 
-
-[1]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 55d4714a6d93 
-
-[2]: MEM(2) ModRm = d0, SIB = 0:
-ff d0 
-
-[3]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[4]: MOV_REG_REG(3) ModRm = f8, SIB = 0:
-48 89 f8 
-
-[5]: POP_RAX(1) ModRm = 0, SIB = 0:
-58 
-
-[6]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[7]: POP_RBX(1) ModRm = 0, SIB = 0:
-5b 
-
-[8]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[9]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 0 
-
-[10]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[11]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[12]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[13]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 82 65 
-
-[14]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[15]: PUSH_CNST(5) ModRm = 0, SIB = 0:
-68 1 
-
-[16]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[17]: POP_RDI(1) ModRm = 0, SIB = 0:
-5f 
-
-[18]: CMP_REG_REG(3) ModRm = f7, SIB = 0:
-48 39 f7 
-
-[19]: TWO_BYTE(6) ModRm = 0, SIB = 0:
-f 86 5e 
-
-[20]: CALL_REL(5) ModRm = 0, SIB = 0:
-e8 1b 
-
-[21]: PUSH_RBX(1) ModRm = 0, SIB = 0:
-53 
-
-[22]: MOVABS_RDI(10) ModRm = 0, SIB = 0:
-48 bf 55d4714aba11 
-
-[23]: POP_RSI(1) ModRm = 0, SIB = 0:
-5e 
-
-[24]: PUSH_RAX(1) ModRm = 0, SIB = 0:
-50 
-
-[25]: MOVABS_RAX(10) ModRm = 0, SIB = 0:
-48 b8 7f246a0af770 
+48 b8 7f0a2cb3d770 
 
 [26]: MEM(2) ModRm = d0, SIB = 0:
 ff d0 

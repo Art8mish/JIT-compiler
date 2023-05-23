@@ -12,12 +12,11 @@ int main(int argc, char *argv[])
     BCode *bcode = BCodeCtor();
     ERR_CHK(bcode == NULL, ERR_BCODE_CTOR);
     
-    _err = ReadBCodeF(bcode, bcode_f_path);
+    _err = ReadBCodeF(bcode, inpt_f);
     ERR_CHK_SAFE(_err, BCodeDtor(bcode);, ERR_READ_BCODE);
 
     _err = DisAsmBCode(bcode);
     ERR_CHK_SAFE(_err, BCodeDtor(bcode);, ERR_DISASM_BCODE);
-
 
     JitIR *ir = JitIRCtor(bcode->buf_len);
     ERR_CHK_SAFE(ir == NULL, BCodeDtor(bcode);, ERR_JITIR_CTOR);
@@ -52,7 +51,7 @@ int main(int argc, char *argv[])
     
     clock_t end_time = clock();
     double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-    printf("%lf (jit)", elapsed_time);
+    printf("Elapsed time: %lf s\n", elapsed_time);
 
     _err = ExCodeDtor(ex_code);
     ERR_CHK(_err, ERR_EXCODE_DTOR);

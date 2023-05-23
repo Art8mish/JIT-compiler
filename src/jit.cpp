@@ -38,7 +38,6 @@ static AddrTbl *AddrTblCtor(BCode *bcode)
     ERR_CHK(_err, NULL);
 
     //realloc bufs 
-    printf("addr_tbl_len[0] = %u\n", addr_tbl->len);
     addr_tbl->instr_ip = (uint32_t *) realloc(addr_tbl->instr_ip, addr_tbl->len * sizeof(uint32_t));
     ERR_CHK(addr_tbl->instr_ip == NULL, NULL); 
 
@@ -69,9 +68,14 @@ static int FillAddrTbl(AddrTbl *addr_tbl, BCode *bcode)
             tbl_ip++;
         }
 
-        bcode_ip++;
+        if (MSK16(code[bcode_ip])  == BCODE_PUSH || 
+            MSK16(code[bcode_ip])  == BCODE_POP)
+            bcode_ip += 2;
+
+        else
+            bcode_ip++;
     }
-    printf("tbl_ip = %u\n", tbl_ip);
+
     addr_tbl->len = tbl_ip;
 
     return SUCCESS;
@@ -670,9 +674,11 @@ static int _processIR_OUT(JitIR *ir, BCode *bcode)
 
 int __scanf ()
 {
+    
     int num = 0;
     char buf[32] = {0};
 
+    printf ("Enter num: \n");
     read (0, buf, 32);
     int i = 0;
     while (buf[i] >= '0')

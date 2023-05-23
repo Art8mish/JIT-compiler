@@ -1,696 +1,161 @@
 [0]: IN
 [1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
+[3]: IN
+[4]: POP rbx
+[6]: IN
+[7]: POP rcx
+[9]: PUSH rax
+[11]: PUSH 0
+[13]: JE 17
+[15]: JMP 52
+[17]: PUSH rbx
+[19]: PUSH 0
+[21]: JE 34
+[23]: PUSH rcx
+[25]: PUSH -1
+[27]: MUL
+[28]: PUSH rbx
+[30]: DIV
+[31]: OUT
+[32]: JMP 130
+[34]: PUSH rcx
+[36]: PUSH 0
+[38]: JE 42
+[40]: JMP 47
+[42]: PUSH 808
+[44]: OUT
+[45]: JMP 130
+[47]: PUSH 606
+[49]: OUT
+[50]: JMP 130
+[52]: CALL 115
+[54]: PUSH 4
+[56]: PUSH rax
+[58]: MUL
+[59]: PUSH rcx
+[61]: MUL
+[62]: PUSH 2
+[64]: CALL 115
+[66]: MUL
+[67]: DIV
+[68]: SUB
+[69]: POP rdx
+[71]: PUSH rdx
+[73]: PUSH 0
+[75]: JB 47
+[77]: PUSH rdx
+[79]: PUSH 0
+[81]: JE 98
+[83]: PUSH rbx
+[85]: PUSH -1
+[87]: MUL
+[88]: PUSH rdx
+[90]: SUB
+[91]: PUSH 2
+[93]: PUSH rax
+[95]: MUL
+[96]: DIV
+[97]: OUT
+[98]: PUSH rbx
+[100]: PUSH -1
+[102]: MUL
+[103]: PUSH rdx
+[105]: ADD
+[106]: PUSH 2
+[108]: PUSH rax
+[110]: MUL
+[111]: DIV
+[112]: OUT
+[113]: JMP 130
+[115]: PUSH rbx
+[117]: PUSH 0
+[119]: JA 127
+[121]: PUSH rbx
+[123]: PUSH -1
+[125]: MUL
+[126]: RET
+[127]: PUSH rbx
+[129]: RET
+[130]: HLT
 [0]: IN
 [1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
-[0]: IN
-[1]: POP rax
-[3]: PUSH 1
-[5]: POP rbx
-[7]: PUSH rax
-[9]: PUSH 0
-[11]: JB 51
-[13]: PUSH rax
-[15]: PUSH 1
-[17]: JBE 55
-[19]: CALL 25
-[21]: PUSH rbx
-[23]: OUT
-[24]: HLT
-[25]: PUSH rax
-[27]: PUSH 1
-[29]: JE 35
-[31]: CALL 36
-[33]: CALL 25
-[35]: RET
-[36]: PUSH rbx
-[38]: PUSH rax
-[40]: MUL
-[41]: POP rbx
-[43]: PUSH rax
-[45]: PUSH 1
-[47]: SUB
-[48]: POP rax
-[50]: RET
-[51]: PUSH 0
-[53]: JMP 23
-[55]: PUSH 1
-[57]: JMP 23
+[3]: IN
+[4]: POP rbx
+[6]: IN
+[7]: POP rcx
+[9]: PUSH rax
+[11]: PUSH 0
+[13]: JE 17
+[15]: JMP 52
+[17]: PUSH rbx
+[19]: PUSH 0
+[21]: JE 34
+[23]: PUSH rcx
+[25]: PUSH -1
+[27]: MUL
+[28]: PUSH rbx
+[30]: DIV
+[31]: OUT
+[32]: JMP 130
+[34]: PUSH rcx
+[36]: PUSH 0
+[38]: JE 42
+[40]: JMP 47
+[42]: PUSH 808
+[44]: OUT
+[45]: JMP 130
+[47]: PUSH 606
+[49]: OUT
+[50]: JMP 130
+[52]: CALL 115
+[54]: PUSH 4
+[56]: PUSH rax
+[58]: MUL
+[59]: PUSH rcx
+[61]: MUL
+[62]: PUSH 2
+[64]: CALL 115
+[66]: MUL
+[67]: DIV
+[68]: SUB
+[69]: POP rdx
+[71]: PUSH rdx
+[73]: PUSH 0
+[75]: JB 47
+[77]: PUSH rdx
+[79]: PUSH 0
+[81]: JE 98
+[83]: PUSH rbx
+[85]: PUSH -1
+[87]: MUL
+[88]: PUSH rdx
+[90]: SUB
+[91]: PUSH 2
+[93]: PUSH rax
+[95]: MUL
+[96]: DIV
+[97]: OUT
+[98]: PUSH rbx
+[100]: PUSH -1
+[102]: MUL
+[103]: PUSH rdx
+[105]: ADD
+[106]: PUSH 2
+[108]: PUSH rax
+[110]: MUL
+[111]: DIV
+[112]: OUT
+[113]: JMP 130
+[115]: PUSH rbx
+[117]: PUSH 0
+[119]: JA 127
+[121]: PUSH rbx
+[123]: PUSH -1
+[125]: MUL
+[126]: RET
+[127]: PUSH rbx
+[129]: RET
+[130]: HLT
 [0]: IN
 [1]: POP rax
 [3]: PUSH 1
